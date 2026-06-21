@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>雷速 · 信息卡片 · 用途与人群</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Roboto, system-ui, -apple-system, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #ffeee0 0%, #feebd0 40%, #fde0c4 100%);
+            min-height: 100vh;
+            padding: 2rem 1.25rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.6;
+            color: #2e2420;
+        }
+
+        .page-wrap {
+            max-width: 1100px;
+            width: 100%;
+        }
+
+        /* 主视觉卡片 — 暖色渐变内部也保留变化 */
+        .hero-card {
+            background: #fffefb;
+            border-radius: 2.5rem 2.5rem 2rem 2rem;
+            padding: 2.8rem 2.5rem 2.2rem;
+            box-shadow: 0 16px 48px -12px rgba(142, 82, 48, 0.22),
+                        0 4px 14px rgba(255, 227, 197, 0.5);
+            margin-bottom: 2.2rem;
+            transition: box-shadow 0.3s ease;
+            border-bottom: 1px solid #fae5d3;
+        }
+
+        .hero-card h1 {
+            font-size: 2.6rem;
+            font-weight: 550;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #b05e3a, #d18458);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: inline-block;
+            padding-bottom: 0.15rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            color: #6b4d3b;
+            font-weight: 400;
+            max-width: 85%;
+            border-left: 5px solid #eabd9b;
+            padding-left: 1.2rem;
+            margin: 0.2rem 0 1.8rem 0;
+            line-height: 1.7;
+        }
+
+        .hero-text {
+            font-size: 1.05rem;
+            color: #3f2e26;
+            margin-bottom: 1.2rem;
+            max-width: 92%;
+        }
+
+        .hero-text a {
+            color: #b4603a;
+            font-weight: 540;
+            text-decoration: none;
+            background: #fcefe6;
+            padding: 0.1rem 0.5rem;
+            border-radius: 30px;
+            transition: background 0.2s, color 0.2s;
+            border-bottom: 1px solid #dbaa83;
+        }
+
+        .hero-text a:hover {
+            background: #eacab4;
+            color: #482e20;
+            border-bottom-color: #bb784d;
+        }
+
+        /* 卡片网格 — 两列 / 响应式 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.8rem;
+            margin-bottom: 2.2rem;
+        }
+
+        .card-item {
+            background: #ffffff;
+            border-radius: 2rem;
+            padding: 1.8rem 1.6rem 2rem;
+            box-shadow: 0 10px 28px -10px rgba(105, 60, 38, 0.16);
+            border: 1px solid #f7e2d0;
+            transition: transform 0.15s ease, box-shadow 0.2s;
+        }
+
+        .card-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 36px -14px rgba(130, 75, 48, 0.2);
+        }
+
+        .card-item h2 {
+            font-size: 1.5rem;
+            font-weight: 520;
+            color: #7c4f35;
+            margin-bottom: 0.8rem;
+            letter-spacing: -0.01em;
+            display: inline-block;
+            border-bottom: 3px solid #f5d4bb;
+            padding-bottom: 0.2rem;
+        }
+
+        .card-item p {
+            color: #3d2d24;
+            margin-bottom: 0.9rem;
+            font-size: 0.98rem;
+        }
+
+        .card-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .card-item li {
+            padding: 0.28rem 0 0.28rem 1.6rem;
+            position: relative;
+            font-size: 0.95rem;
+            color: #3b2b22;
+        }
+
+        .card-item li::before {
+            content: "▹";
+            position: absolute;
+            left: 0.1rem;
+            color: #d69468;
+            font-size: 1.2rem;
+        }
+
+        /* 人群卡片特别标识 */
+        .audience-card {
+            background: #fff7f0;
+        }
+
+        /* 自然链接段落（FAQ摘要风格） */
+        .link-paragraph-section {
+            background: #fffcf8;
+            border-radius: 2rem;
+            padding: 1.8rem 2rem 2.2rem;
+            margin-bottom: 1.8rem;
+            box-shadow: 0 6px 22px -6px rgba(100, 55, 30, 0.12);
+            border: 1px solid #f7dfcb;
+        }
+
+        .link-paragraph-section h3 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #70412b;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .link-paragraph-section h3 span {
+            background: #eccdb9;
+            padding: 0 0.6rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 450;
+            color: #482f22;
+        }
+
+        .faq-line {
+            background: #fffdfa;
+            padding: 0.9rem 1.2rem;
+            border-radius: 60px;
+            margin: 0.65rem 0;
+            border: 1px solid #ecceba;
+            color: #3c2b22;
+            font-size: 0.98rem;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: baseline;
+            gap: 0.2rem 0.6rem;
+        }
+
+        .faq-line strong {
+            font-weight: 550;
+            color: #7c4c32;
+        }
+
+        .faq-line a {
+            color: #b45c33;
+            text-decoration: none;
+            background: #f7e2d2;
+            padding: 0.08rem 0.8rem;
+            border-radius: 40px;
+            font-weight: 500;
+            transition: background 0.2s, color 0.15s;
+            border-bottom: 1px solid transparent;
+        }
+
+        .faq-line a:hover {
+            background: #e3c4ae;
+            color: #38261d;
+            border-bottom: 1px solid #b77a56;
+        }
+
+        .more-hint {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: #6c4c39;
+            background: #f5e3d5;
+            border-radius: 60px;
+            padding: 0.3rem 1.2rem;
+            display: inline-block;
+        }
+
+        .more-hint a {
+            color: #944f2d;
+            text-decoration: none;
+            border-bottom: 1px dashed #bb7f5c;
+        }
+
+        .more-hint a:hover {
+            border-bottom-style: solid;
+            color: #623820;
+        }
+
+        /* 底部留白与版权 */
+        .footer-note {
+            margin-top: 1rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #855e48;
+            opacity: 0.7;
+            padding: 0.5rem 0.8rem;
+            background: rgba(255, 255, 245, 0.6);
+            border-radius: 80px;
+            width: fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 760px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+            .hero-card {
+                padding: 1.8rem 1.3rem;
+                border-radius: 2rem;
+            }
+            .hero-card h1 {
+                font-size: 2rem;
+            }
+            .hero-sub {
+                max-width: 100%;
+                font-size: 1rem;
+            }
+            .hero-text {
+                max-width: 100%;
+                font-size: 0.95rem;
+            }
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .card-item {
+                padding: 1.5rem 1.2rem;
+            }
+            .link-paragraph-section {
+                padding: 1.4rem 1.2rem 1.8rem;
+            }
+            .faq-line {
+                flex-direction: column;
+                align-items: flex-start;
+                border-radius: 28px;
+                padding: 0.8rem 1rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .hero-card h1 {
+                font-size: 1.7rem;
+            }
+            .hero-sub {
+                font-size: 0.95rem;
+                padding-left: 0.8rem;
+            }
+            .card-item h2 {
+                font-size: 1.25rem;
+            }
+            .faq-line {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrap">
+
+    <!-- Hero 主视觉卡片 -->
+    <div class="hero-card">
+        <h1>雷速 · 信息聚合</h1>
+        <div class="hero-sub">从关键词到内容脉络，一个更清晰的整理</div>
+        <p class="hero-text">
+            「雷速」并不只是名称或标记，它代表着一种对即时信息与结构内容的持续梳理。
+            围绕这个种子，我们尝试用卡片形式呈现主要用途、适用人群以及相关的背景说明。
+            如果你正在寻找一个可靠的内容索引起点，不妨从 <a href="https://home-leis.com">雷速</a> 开始浏览。
+        </p>
+        <p class="hero-text" style="margin-bottom: 0.2rem;">
+            页面采用暖色渐变与白色卡片，希望阅读时感受温和与条理——没有复杂的干扰，只有认真整理的段落。
+        </p>
+    </div>
+
+    <!-- 用途卡片 + 人群卡片 网格 -->
+    <div class="card-grid">
+        <!-- 用途卡片 -->
+        <div class="card-item">
+            <h2>常见用途</h2>
+            <p>下面列举几种典型的场景，它们都围绕「雷速」所涵盖的主题方向展开，但并不等于全部。</p>
+            <ul>
+                <li>作为内容检索的辅助参考，快速了解不同模块的背景</li>
+                <li>获取经过筛选的说明与摘要，减少无效浏览时间</li>
+                <li>用于日常信息整理或轻量级的知识回顾</li>
+                <li>在需要了解某个概念时，找到相对平实的解释入口</li>
+            </ul>
+            <p style="margin-top: 0.8rem; font-size: 0.92rem; color:#5e4233;">
+                以上用途来自常见反馈与内容结构本身，并非承诺特定功能。
+            </p>
+        </div>
+
+        <!-- 适合人群卡片（带特殊背景类） -->
+        <div class="card-item audience-card">
+            <h2>适合人群</h2>
+            <p>以下使用者往往觉得这种卡片式、段落清晰的呈现方式比较顺手：</p>
+            <ul>
+                <li>偏好直接阅读说明，而不是层层跳转的浏览者</li>
+                <li>需要为写作、收集素材寻找可靠切入点的学习者</li>
+                <li>希望减少信息噪音、获得整理后内容的普通用户</li>
+                <li>对「雷速」主题感兴趣，愿意花几分钟浏览概况的访客</li>
+            </ul>
+            <p style="margin-top: 0.9rem; font-size: 0.92rem;">
+                当然，任何愿意花时间阅读的人都能从中获得自己的理解。
+            </p>
+        </div>
+    </div>
+
+    <!-- 自然链接段落 (FAQ 摘要 与 上下文嵌入) -->
+    <div class="link-paragraph-section">
+        <h3>📎 链接段落与常见说明 <span>FAQ 摘要</span></h3>
+
+        <div class="faq-line">
+            <strong>“雷速”是什么？</strong>
+            可以把它理解为一个持续更新的内容索引站点。具体介绍在 <a href="https://home-leis.com">雷速</a> 页面中有更完整的说明。
+        </div>
+
+        <div class="faq-line">
+            <strong>如何快速找到需要的内容？</strong>
+            目前页面采用分类卡片与段落链接，你可以先浏览上方用途与人群卡片，再通过句子中的链接直接前往 <a href="https://home-leis.com">雷速</a> 主页查看详情。
+        </div>
+
+        <div class="faq-line">
+            <strong>内容是否定期更新？</strong>
+            是的，结构会随方向调整而优化。如果你发现某些部分过时，可以留意 <a href="https://home-leis.com">雷速</a> 上的最新版本。
+        </div>
+
+        <div class="more-hint">
+            💡 每个句子中的“雷速”均为指向 home-leis.com 的自然链接，无需额外跳转说明。
+        </div>
+    </div>
+
+    <!-- 一个额外的自然引用段落（再次嵌入链接，不显刻意） -->
+    <div style="background:#fffbf6; border-radius: 2rem; padding: 1rem 1.8rem; border: 1px solid #ebd4c2; margin-bottom: 0.6rem;">
+        <p style="color: #3e2c23; font-size:0.96rem;">
+            ⚡ 如果你想把当前页面当作书签或分享给他人，可以引用
+            <a href="https://home-leis.com" style="color:#9f5f3d; background:#f2ddcd; padding:0.1rem 0.6rem; border-radius:30px; text-decoration:none; font-weight:470;">雷速</a>
+            作为起始地址，里面包含更多细分卡片与索引。
+        </p>
+    </div>
+
+    <!-- 底部细线说明 -->
+    <div class="footer-note">
+        卡片式说明 · 暖色渐变 · 当前版本索引
+    </div>
+</div>
+</body>
+</html>
