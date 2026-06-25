@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>爱游戏 · 产品说明与站点介绍</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f7f3eb;
+            font-family: system-ui, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+            line-height: 1.7;
+            color: #2c2b28;
+            padding: 2.5rem 1.2rem;
+        }
+
+        .page-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fcf9f5;
+            border-radius: 28px;
+            padding: 3rem 2rem 2.8rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 1px 3px rgba(0, 0, 0, 0.05);
+        }
+
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+            color: #1f2a2d;
+            border-left: 6px solid #cfb695;
+            padding-left: 1.2rem;
+        }
+        .subhead {
+            font-size: 1.05rem;
+            color: #5f5b55;
+            margin-bottom: 2.2rem;
+            padding-left: 1.8rem;
+            border-bottom: 1px solid #e6dccc;
+            padding-bottom: 1rem;
+        }
+
+        .intro-paragraph {
+            margin-bottom: 1.8rem;
+            font-size: 1.06rem;
+        }
+
+        .insight-block {
+            background-color: #f0ebe0;
+            border-radius: 20px;
+            padding: 1.5rem 1.8rem;
+            margin: 2rem 0 2.2rem;
+            border-left: 4px solid #b8a387;
+            color: #2f2b24;
+        }
+        .insight-block strong {
+            font-weight: 600;
+            color: #3b3a33;
+        }
+
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem 2rem;
+            margin: 2.5rem 0 2rem;
+        }
+        .feature-item {
+            flex: 1 1 200px;
+            background: #ffffffd9;
+            border-radius: 24px;
+            padding: 1.5rem 1.2rem 1.2rem;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+        }
+        .feature-item h3 {
+            font-weight: 500;
+            font-size: 1.2rem;
+            letter-spacing: -0.01em;
+            margin-bottom: 0.35rem;
+            color: #353027;
+        }
+        .feature-item p {
+            font-size: 0.95rem;
+            color: #3f3b35;
+        }
+
+        .quote-box {
+            background: #f5efe6;
+            padding: 1.2rem 1.8rem;
+            border-radius: 40px 12px 40px 12px;
+            margin: 2.2rem 0 2rem;
+            font-style: normal;
+            border: 1px solid #e2d7c6;
+        }
+        .quote-box p {
+            margin-bottom: 0.3rem;
+        }
+        .quote-box .source {
+            font-size: 0.9rem;
+            color: #706a60;
+            margin-top: 0.3rem;
+            text-align: right;
+        }
+
+        .faq-mini {
+            background: #faf8f2;
+            padding: 1.6rem 1.6rem 1rem;
+            border-radius: 28px;
+            margin: 2rem 0 1.6rem;
+        }
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+        .faq-item dt {
+            font-weight: 500;
+            color: #312e28;
+            margin-bottom: 0.1rem;
+        }
+        .faq-item dd {
+            margin-left: 0.2rem;
+            color: #4d4840;
+            font-size: 0.98rem;
+        }
+
+        .context-link {
+            display: inline-block;
+            background: #e1d6c4;
+            color: #1f1e1a;
+            text-decoration: none;
+            padding: 0.1rem 0.3rem;
+            border-radius: 6px;
+            transition: background 0.15s;
+            font-weight: 450;
+        }
+        .context-link:hover {
+            background: #d0c2aa;
+        }
+
+        .footnote {
+            margin-top: 2.8rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e2d9ca;
+            font-size: 0.9rem;
+            color: #676157;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+        .footnote a {
+            color: #4f4a3f;
+            text-decoration: underline 1px dotted #b6aa95;
+            text-underline-offset: 4px;
+            font-weight: 450;
+        }
+        .footnote a:hover {
+            text-decoration: underline solid;
+        }
+
+        @media (max-width: 500px) {
+            body {
+                padding: 1.2rem 0.8rem;
+            }
+            .page-container {
+                padding: 2rem 1.2rem 1.8rem;
+            }
+            h1 {
+                font-size: 1.9rem;
+                padding-left: 1rem;
+            }
+            .subhead {
+                font-size: 0.95rem;
+                padding-left: 1.2rem;
+            }
+            .feature-grid {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .insight-block {
+                padding: 1.2rem 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-container">
+
+    <h1>爱游戏 · 产品说明</h1>
+    <div class="subhead">站点背景、功能亮点与使用引导</div>
+
+    <p class="intro-paragraph">
+        <strong>爱游戏</strong> 是一个定位为综合游戏信息与应用服务的平台，面向对数字娱乐及其工具链感兴趣的普通用户与爱好者。站点本身并不声称提供独家资源或超常规服务，而是围绕实用信息聚合、工具索引与社区内容展示三个方向组织内容。本文从产品化视角梳理其设计逻辑与适用场景，帮助读者在了解全貌后自行判断是否使用。
+    </p>
+
+    <div class="insight-block">
+        <strong>▎ 平台定位摘要</strong><br>
+        作为一个以“游戏服务”为切入点的网络入口，爱游戏主要整合了游戏资讯、工具类应用介绍以及部分交互式内容模块。站点页面结构偏向于信息展示与导航型，并未采用复杂的交互框架，对于希望快速了解某款游戏或相关工具的访问者而言，浏览负担较低。需要说明的是，该站点并非游戏开发商或发行商，更像一个游戏生态的信息中转与索引节点。
+    </div>
+
+    <div class="feature-grid">
+        <div class="feature-item">
+            <h3>⚙️ 工具与信息模块</h3>
+            <p>汇集游戏配置工具、补丁说明、常见问题索引及第三方实用链接，减少用户四处查找的碎片感。</p>
+        </div>
+        <div class="feature-item">
+            <h3>📰 轻量化内容聚合</h3>
+            <p>非实时动态更新，但保持一定周期的内容整理，涵盖热门作品动态、版本注意项等，适合间歇性查阅。</p>
+        </div>
+        <div class="feature-item">
+            <h3>🧩 导航与场景建议</h3>
+            <p>按游戏类型或功能场景（如联机辅助、存档管理）分类，降低信息过载；类别标签清晰，易于定位。</p>
+        </div>
+    </div>
+
+    <div class="quote-box">
+        <p>“站点本身保持克制的信息密度，不植入弹窗或强制跳转；访问者可根据自身需要选择浏览深度。”</p>
+        <div class="source">—— 基于产品页面结构与体验的观察</div>
+    </div>
+
+    <h2 style="font-weight: 450; font-size: 1.3rem; margin: 1.6rem 0 0.8rem; letter-spacing: -0.01em;">📌 使用建议 & 适用场景</h2>
+    <p style="margin-bottom: 1.2rem;">
+        如果你是刚接触某款游戏的玩家，想在查找工具或基础指引时节约时间，可以先将爱游戏作为一个起点；站点内提供的链接与摘要通常指向外部开发者或官方文档，因此建议在获取信息后对关键内容做二次确认。若你偏好自己搜集资料，也可将站点作为一个“备忘清单”来对照使用。
+    </p>
+    <p style="margin-bottom: 0.8rem;">
+        另外，站点不涉及账号系统或付费墙，所有可见内容均可直接访问。部分工具类页面为纯索引性质，不提供下载托管，仅作信息展示与跳转。
+    </p>
+
+    <div class="faq-mini">
+        <dl>
+            <div class="faq-item">
+                <dt>❓ 爱游戏上的信息可靠吗？</dt>
+                <dd>站内内容多整理自公开来源或经概括而成，建议结合其他渠道交叉验证。平台方会在页面中标注参考来源（若适用）。</dd>
+            </div>
+            <div class="faq-item">
+                <dt>❓ 是否需要注册或下载客户端？</dt>
+                <dd>不需要。爱游戏为纯网页形式，不要求注册、不提供客户端下载。所有功能均在浏览器中完成。</dd>
+            </div>
+            <div class="faq-item">
+                <dt>❓ 站点与游戏公司有关联吗？</dt>
+                <dd>无直接关联。爱游戏是独立的信息整合站点，不属于任何游戏开发商、发行商或平台方。</dd>
+            </div>
+        </dl>
+    </div>
+
+    <p style="margin: 1.8rem 0 0.8rem; font-size: 1rem;">
+        若你希望自行探索站点全貌，可以访问 <a href="https://wapportal-igame.com" class="context-link">爱游戏</a>，并根据自身需求浏览对应栏目。初次访问时建议从“信息索引”或“常见工具”分类开始，以快速把握内容结构。
+    </p>
+
+    <div class="footnote">
+        <span>最后更新：2025</span>
+        <span>本文为产品说明页面 · 信息客观呈现</span>
+    </div>
+</div>
+</body>
+</html>
